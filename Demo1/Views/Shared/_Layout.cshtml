@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+@*<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Hội Thao Hutech</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+</head>*@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hội thao Khoa Công nghệ Thông tin HUTECH</title>
+    <meta name="description" content="Với chuỗi sự kiện từ tháng 03/2021 đến tháng 04/2022, ngày hội sẽ đưa các bạn khám phá, gắn kết và tương tác với nhau bao gồm Hội thảo “Định hướng nghề IT &amp; Kỹ năng chinh phục nhà tuyển dụng”, “Tuần triển lãm thực tập/việc làm” và “Ngày hội tuyển dụng, triển lãm công nghệ”">
+    <meta name="keywords" content="hutech it, cntt hutech, khoa cntt hutech, it openday, ngay hoi cntt hutech, event it hutech, công nghệ phần mềm, phần mềm hutech, clb youthdev, youthdev hutech, youth dev, ngành cntt hutech, hutech đào tạo cntt, dev hutech, coder hutech, lập trình, học lập trình ở hutech, học it ở hutech, hutech youthdev, công nghệ thông tin, hutech it, cntt hutech, học cntt hutech, clb hutech, clb it hutech, câu lạc bộ it hutech, clb cntt hutech, hutech">
+
+    <!-- Facebook -->
+    <meta property="og:title" content="Hội thao Khoa Công nghệ Thông tin HUTECH">
+    <meta content="website" property="og:type">
+    <meta content="Với chuỗi sự kiện từ tháng 03/2021 đến tháng 04/2022, ngày hội sẽ đưa các bạn khám phá, gắn kết và tương tác với nhau bao gồm Hội thảo “Định hướng nghề IT &amp; Kỹ năng chinh phục nhà tuyển dụng”, “Tuần triển lãm thực tập/việc làm” và “Ngày hội tuyển dụng, triển lãm công nghệ”" property="og:description">
+    <meta content="Hội thao Khoa Công nghệ Thông tin HUTECH" property="og:site_name">
+    <meta property="og:image" content="/Assets/img/banner1.jpg">
+    <meta name="author" content="HUTECH YOUTHDEV">
+    <link href="/Assets/img/logo.png" rel="icon" type="image/x-icon">
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+    <link href="/Content/css?v=-ZvRPXleAiRxNdM4oxcGBufuchUj5XFBBNp_u9ssXj41" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/yourcode.js"></script>
+    <link href="/Content/user_css?v=zuINjPwrq_iC7CNVEgC1SwQDXkHvYChqzdCOrCbbrTU1" rel="stylesheet">
+    <link href="~/Content/css1.css" rel="stylesheet" />
+
+    @*<style type="text/css">@font-face { font-family: Roboto; src: url("chrome-extension://mcgbeeipkmelnpldkobichboakdfaeon/css/Roboto-Regular.ttf"); }</style>*@
+</head>
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="https://localhost:44390/Home/TrangChu">HỘI THAO IT</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a style="margin-right:10px">@Html.ActionLink("Tổng quan", "TrangChu", "Home")</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="margin-right:10px">@Html.ActionLink("Bóng đá", "BongDa", "BoMonThiDau")</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="margin-right:10px">@Html.ActionLink("Bóng chuyền", "BongChuyen", "BoMonThiDau")</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="margin-right:10px">@Html.ActionLink("Cầu lông", "CauLong", "BoMonThiDau")</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="margin-right:10px">@Html.ActionLink("Kéo co", "KeoCo", "BoMonThiDau")</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="margin-right:10px">@Html.ActionLink("Cờ vua/Cờ tướng", "CoVua_CoTuong", "BoMonThiDau")</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="margin-right:10px">@Html.ActionLink("Điền kinh", "DienKinh", "BoMonThiDau")</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <a class="btn btn-primary" href="@Url.Action("Login", "TaiKhoan")"><i class=""></i> Đăng nhập</a>
+                    <a style="margin-left:20px" class="btn btn-primary" href="@Url.Action("Register", "TaiKhoan")"><i class=""></i> Đăng ký</a>
+                    @*<button type="button" class="btn btn-primary ml-3" data-toggle="modal" data-target="#modalLogin">Đăng ký</button>*@
+
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    @RenderBody()
+
+
+    <footer class="footer bg-light">
+        <hr />
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                    <ul class="list-inline mb-2">
+                        <li class="list-inline-item"><a href="https://www.facebook.com/lhp.hutech">Facebook</a></li>
+                        <li class="list-inline-item">⋅</li>
+                        <li class="list-inline-item"><a href="#!">Email</a></li>
+                    </ul>
+                    <p class="text-muted small mb-4 mb-lg-0">© Khoa Công Nghệ Thông Tin - Trường Đại Học Công Nghệ TP. HCM</p>
+                </div>
+                <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item me-4">
+                            <a href="#!"><i class="bi-facebook fs-3"></i></a>
+                        </li>
+                        <li class="list-inline-item me-4">
+                            <a href="#!"><i class="bi-twitter fs-3"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!"><i class="bi-instagram fs-3"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+﻿@model Demo1.Models.NGUOIDUNG
+
+@{
+    ViewBag.Title = "Register";
+    Layout = null;
+}
+<link href="~/Content/styleRegister.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<div class="login-wrap">
+    <div class="login-html">
+        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Đăng ký</label>
+
+        <input id="tab-2" type="radio" name="tab" class="for-pwd"><label for="tab-2" class="tab"></label>
+        <div id="registerForm" class="login-form">
+
+            @using (Html.BeginForm())
+            {
+                @*@Html.ValidationSummary(true)*@
+                @Html.AntiForgeryToken()
+                <div class="sign-in-htm">
+                    <div class="group">
+                        @ViewData["CheckMail"]
+                    </div>
+
+
+
+
+
+
+                    @*<div class="group">
+                            <input name="GIOITINH" type="radio" value="1" />Nam
+                            <input name="GIOITINH" type="radio" value="0" />Nữ
+                        </div>*@
+
+                    <div class="group">
+                        <div class="col-md-10">
+                            <input placeholder="MSSV" id="MSSV" type="number" class="input" name="MSSV"
+                                   @Html.EditorFor(model => model.MSSV, new { htmlAttributes = new { @class = "input" } })
+                                   @Html.ValidationMessageFor(model => model.MSSV, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+                    <div class="group">
+                        <div class="col-md-10">
+                            <input placeholder="Mật khẩu" id="PASS" type="password" class="input" name="PASS"
+                                   @Html.EditorFor(model => model.PASS, new { htmlAttributes = new { } })
+                                   @Html.ValidationMessageFor(model => model.PASS, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="group">
+                        <div class="col-md-10">
+                            <input placeholder="Mật khẩu xác nhận" class="input text-box single-line input-validation-error"
+                                   data-val="true" data-val-required="Phải nhập mật khẩu xác nhận!"
+                                   id="MatKhauXacNhan" name="MatKhauXacNhan" type="password" value="" aria-
+                                   describedby="MatKhauXacNhan-error" aria-invalid="true">
+
+                            @ViewData["NhapMKXN"]
+                            @ViewData["MatKhauGiongNhau"]
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="col-md-10">
+                            <input placeholder="Họ và tên" id="HOVATEN" type="text" class="input" name="HOVATEN"
+                                   @Html.EditorFor(model => model.HOVATEN, new { htmlAttributes = new { @class = "input" } })
+                                   @Html.ValidationMessageFor(model => model.HOVATEN, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="col-md-10">
+                            <input placeholder="Giới tính"
+                                   @Html.EditorFor(model => model.GIOITINH, new { htmlAttributes = new { @class = "input" } })
+                                   @Html.ValidationMessageFor(model => model.GIOITINH, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+                    <div class="group">
+                        <div class="col-md-10">
+                            <input placeholder="Số điện thoại" id="SDT" type="tel" class="input" name="SDT"
+                                   @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "input" } })
+                                   @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+                    <div class="group">
+                        <div class="col-md-10">
+                            <input placeholder="Gmail" id="GMAIL" type="email" class="input" name="GMAIL"
+                                   @Html.EditorFor(model => model.GMAIL, new { htmlAttributes = new { @class = "input" } })
+                                   @Html.ValidationMessageFor(model => model.GMAIL, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+                    <div class="group">
+                        <div class="col-md-10">
+                            <input placeholder="Lớp" id="LOP" type="text" class="input" name="LOP"
+                                   @Html.EditorFor(model => model.LOP, new { htmlAttributes = new { @class = "input" } })
+                                   @Html.ValidationMessageFor(model => model.LOP, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+                    <a href="#" class="group">
+                        <input type="submit" class="button" value="Đăng ký">
+                    </a>
+                    @*<button class="btnSignUp" type="submit">Đăng Ký</button>*@
+
+                    <a href="@Url.Action("Login","TaiKhoan")" class="group">
+                        <input type="submit" class="button" value="Đăng Nhập">
+                    </a>
+                    <div class="button"></div>
+                    <h5 style="color:red; text-align:center"> @ViewBag.ThongBao</h5>
+
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+    <script>
+
+        $(document).ready(function () {
+            $("#formInput").validate({
+                rules: {
+                    HOVATEN: {
+                        required: true
+                    },
+                    GMAIL: {
+                        required: true,
+                        email: true
+
+                    },
+                    PASS: {
+                        required: true,
+                        minlength: 6
+                    },
+                    rePass: {
+                        equalTo: "#PASS"
+                    },
+                    SDT: {
+                        required: true,
+                        minlength: 8,
+                        //length: 12
+                        //phoneValidate: true
+                    },
+                    NAMSINH: {
+                        required: true,
+
+                    },
+                    //GIOITINH: {
+                    //    required: true,
+
+                    //},
+                    DIACHI: {
+                        required: true,
+
+                    }
+
+                },
+                messages: {
+                    HOVATEN: {
+                        required: "Không được để trống"
+                    },
+                    GMAIL: {
+                        required: "Email đăng nhập không được để trống",
+                        email: "Định email Dạng Sai",
+
+                    },
+                    PASS: {
+                        minlength: "Mật khẩu phải dài ít nhất 6 ký tự",
+                        required: "Mật khẩu không được để trống"
+                    },
+                    rePass: {
+                        equalTo: "Mật khẩu và mật khẩu xác nhận phải giống nhau"
+                    },
+                    SDT: {
+                        required: "Số ĐT Không Được Trống",
+                        minlength: "Số Điện Thoại Phải Lớn Hơn 8 Chữ Số"
+                        //length: "hihi"
+                    },
+                    NAMSINH: {
+                        required: "Không được để trống",
+                    },
+                    //GIOITINH: {
+                    //    required: "Không được để trống",
+                    //},
+                    DIACHI: {
+                        required: "Lớp không được để trống",
+                    }
+                }
+            })
+        });
+    </script>
+}
